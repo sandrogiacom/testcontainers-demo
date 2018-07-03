@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:5.7.22
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=tdc2018
+      - MYSQL_PASSWORD=root
+  webapp:
+    image: tdc2018/testcontainers:latest
+    build:
+      dockerfile: Dockerfile
+      context: .
+    depends_on:
+      - mysql
+    ports:
+      - 8080:8080
+    environment:
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=root
+      - DATABASE_URL=jdbc:mysql://mysql:3306/tdc2018?useSSL=false

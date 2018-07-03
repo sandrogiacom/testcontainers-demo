@@ -1,9 +1,9 @@
 package com.giacom.demo.tdc.db.migration;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,18 +11,19 @@ import org.flywaydb.core.Flyway;
 
 public class DatabaseMetadata {
 
-    static List<String> getColNames(Flyway flyway) throws SQLException {
-        List<String> columnNames = new ArrayList<>();
-        try (Connection con = flyway.getDataSource().getConnection()) {
-            try (Statement st = con.createStatement()) {
-                ResultSet rs = st.executeQuery("SELECT * from sample_user");
-                int columns = rs.getMetaData().getColumnCount();
-                for (int i = 1; i <= columns; i++) {
-                    columnNames.add(rs.getMetaData().getColumnName(i));
+    static public List<String> getColumns(Flyway flyway, String vendor, String table) throws SQLException {
+        List<String> columns = new ArrayList<>(0);
+        try (Connection connection = flyway.getDataSource().getConnection()) {
+            DatabaseMetaData metaData = connection.getMetaData();
+            try (ResultSet resultSet = metaData.getColumns(null, null,
+                    vendor.equals("postgresql") ? table.toLowerCase() : table, null)) {
+                while (resultSet.next()) {
+                    String name = resultSet.getString("COLUMN_NAME");
+                    columns.add(vendor.equals("postgresql") ? name.toUpperCase() : name);
                 }
             }
+            return columns;
         }
-        return columnNames;
     }
 
 }

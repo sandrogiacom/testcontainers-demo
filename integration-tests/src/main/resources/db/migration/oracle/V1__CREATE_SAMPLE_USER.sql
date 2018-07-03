@@ -1,0 +1,7 @@
+CREATE TABLE SAMPLE_USER (
+  ID varchar(255) NOT NULL,
+  AGE number(11) NOT NULL,
+  LAST_NAME varchar2(255),
+  NAME varchar2(255),
+  PRIMARY KEY (ID)
+)
