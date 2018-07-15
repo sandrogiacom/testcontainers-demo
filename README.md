@@ -16,11 +16,13 @@ docker-compose up
 
 http://localhost:8080/api/v1/users
 
-## Integrations Tests
+### run integrations tests
 
 Use -DdbVendor to determine database. Supported databases
 mysql, oracle and postgresql
 
 ```sh
 mvn verify -Pintegration-test -DdbVendor=mysql
+mvn verify -Pintegration-test -DdbVendor=oracle
+mvn verify -Pintegration-test -DdbVendor=postgresql
 ``` 
