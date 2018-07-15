@@ -42,12 +42,17 @@ public class SimpleMySQLTableTest {
 
         //Testa a criaçao da tabela e campos
         String tableName = "APP_USER";
-        List<String> fields = Arrays.asList("USER_ID",
-                "USER_CODE", "USER_NAME",
+        List<String> fields = Arrays.asList(
+                "USER_ID",
+                "USER_CODE",
+                "USER_NAME",
                 "USER_PASSWD");
 
         DbTestUtil dbTestUtil = new DbTestUtil(ds);
-        assertThat(dbTestUtil.getColumns(tableName)).hasSize(4).containsAll(fields);
+        List<String> columns = dbTestUtil.getColumns(tableName);
+
+        assertThat(columns).hasSize(4).containsAll(fields);
+
 
     }
 

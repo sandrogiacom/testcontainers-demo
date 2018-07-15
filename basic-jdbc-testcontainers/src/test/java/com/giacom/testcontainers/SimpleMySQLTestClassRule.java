@@ -11,12 +11,12 @@ public class SimpleMySQLTestClassRule {
 
     @Test
     public void classRuleTest_1() {
-        System.out.println(mysql.getJdbcUrl());
+        System.out.println("URL test 1: " + mysql.getJdbcUrl());
     }
 
     @Test
     public void classRuleTest_2() {
-        System.out.println(mysql.getJdbcUrl());
+        System.out.println("URL test 2: " + mysql.getJdbcUrl());
     }
 
 }

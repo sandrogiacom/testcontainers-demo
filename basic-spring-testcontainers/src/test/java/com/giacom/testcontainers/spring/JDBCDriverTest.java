@@ -6,7 +6,9 @@ import java.sql.SQLException;
 public class JDBCDriverTest {
 
     public static void sampleInitFunction(Connection connection) throws SQLException {
-        System.out.println("@@@@@@ in init function @@@@@");
+        System.out.println("\n@@@@@@ init function @@@@@");
+        System.out.println(connection.getMetaData().getURL());
+        System.out.println();
     }
 
 }

@@ -21,7 +21,7 @@ import com.giacom.demo.tdc.config.factory.DatabaseFactory;
 import com.giacom.demo.tdc.config.jdbc.AbstractDatabaseTest;
 
 @RunWith(Parameterized.class)
-public class DbMigrationTest {
+public class DbMigrationIT {
 
     AbstractDatabaseTest dbTest;
 

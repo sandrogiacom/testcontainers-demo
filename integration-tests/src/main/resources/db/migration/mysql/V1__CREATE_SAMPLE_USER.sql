@@ -5,4 +5,5 @@ CREATE TABLE `sample_user` (
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-INSERT INTO sample_user values ('11111', 39, 'Giacomozzi', 'Sandro');
+INSERT INTO sample_user values ('123456', 65, 'Santos', 'Lulu');
+INSERT INTO sample_user values ('123457', 76, 'Gil', 'Gilberto');

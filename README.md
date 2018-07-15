@@ -6,10 +6,12 @@ Testcontainers é uma biblioteca Java que suporta testes com JUnit, fornecendo i
 
 ## Build and run
 
-```sh
+### integration-tests project
+
+```
+cd integration-tests
 mvn clean install
-docker build --force-rm -t tdc2018/testcontainers:latest
-docker run --name tdc2018-testcontainers -p 8081:8080 tdc2018/testcontainers:latest 
+docker-compose up
 ```
 
 http://localhost:8080/api/v1/users
@@ -20,5 +22,5 @@ Use -DdbVendor to determine database. Supported databases
 mysql, oracle and postgresql
 
 ```sh
-mvn clean install -Pintegration-test -DdbVendor=mysql
+mvn verify -Pintegration-test -DdbVendor=mysql
 ``` 

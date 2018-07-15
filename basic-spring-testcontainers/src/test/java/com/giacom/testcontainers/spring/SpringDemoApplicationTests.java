@@ -21,7 +21,8 @@ public class SpringDemoApplicationTests {
 
     @Test
     public void peopleFindTest() throws SQLException {
-        System.out.println("@@@@@@ inside test @@@@@: " + ds.getConnection().getMetaData().getURL());
+        System.out.println("\n@@@@@@ inside test @@@@@: " + ds.getConnection().getMetaData().getURL());
+        System.out.println();
     }
 
 }
