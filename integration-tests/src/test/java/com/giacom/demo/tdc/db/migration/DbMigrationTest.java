@@ -35,7 +35,6 @@ public class DbMigrationTest {
 
     @Before
     public void initDatabase() throws InvalidDatabaseVendorException {
-        //        dbVendor = System.getProperty("dbVendor");
         dbTest = DatabaseFactory.getDatabase(dbVendor);
     }
 

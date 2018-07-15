@@ -29,6 +29,9 @@ import com.giacom.demo.tdc.v1.dto.UserDTO;
         @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = "classpath:before_sample_user.sql"),
         @Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = "classpath:after_sample_user.sql")
 })
+
+//mvn verify -Pintegration-test -DdbVendor=oracle
+
 public class UserControllerIT {
 
     private static String USERS_RESOURCE;

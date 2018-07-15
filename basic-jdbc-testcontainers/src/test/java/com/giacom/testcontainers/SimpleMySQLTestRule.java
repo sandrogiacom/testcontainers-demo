@@ -1,21 +1,21 @@
 package com.giacom.testcontainers;
 
-import org.junit.ClassRule;
+import org.junit.Rule;
 import org.junit.Test;
 import org.testcontainers.containers.MySQLContainer;
 
-public class SimpleMySQLTestA {
+public class SimpleMySQLTestRule {
 
-    @ClassRule
-    public static MySQLContainer mysql = new MySQLContainer();
+    @Rule
+    public MySQLContainer mysql = new MySQLContainer();
 
     @Test
-    public void classRuleTest_1() {
+    public void isolateTest_1() {
         System.out.println(mysql.getJdbcUrl());
     }
 
     @Test
-    public void classRuleTest_2() {
+    public void isolateTest_2() {
         System.out.println(mysql.getJdbcUrl());
     }
 

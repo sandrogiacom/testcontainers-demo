@@ -16,10 +16,10 @@ public class DatabaseMetadata {
         try (Connection connection = flyway.getDataSource().getConnection()) {
             DatabaseMetaData metaData = connection.getMetaData();
             try (ResultSet resultSet = metaData.getColumns(null, null,
-                    vendor.equals("postgresql") ? table.toLowerCase() : table, null)) {
+                    (vendor.equals("postgresql") || vendor.equals("mysql")) ? table.toLowerCase() : table, null)) {
                 while (resultSet.next()) {
                     String name = resultSet.getString("COLUMN_NAME");
-                    columns.add(vendor.equals("postgresql") ? name.toUpperCase() : name);
+                    columns.add(name.toUpperCase());
                 }
             }
             return columns;
